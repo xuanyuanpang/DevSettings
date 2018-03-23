@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DevSettings</string>
+
+    <string name="open_close_settings">启用/禁用设置</string>
+    <string name="network_black_white_settings">网络白/黑名单设置</string>
+    <string name="auto_start_settings">自启动设置</string>
+    <string name="back_run_settings">后台运行程序设置</string>
+    <string name="shut_down">设备关机</string>
+    <string name="reboot">设备重启</string>
+    <string name="silent_install">静默安装</string>
+    <string name="silent_uninstall">静默卸载</string>
+
+
+
+    <string-array name="list_option">
+        <item >@string/open_close_settings</item>
+        <item >@string/network_black_white_settings</item>
+        <item >@string/auto_start_settings</item>
+        <item >@string/back_run_settings</item>
+        <item >@string/silent_install</item>
+        <item >@string/silent_uninstall</item>
+        <item >@string/shut_down</item>
+        <item >@string/reboot</item>
+    </string-array>
+</resources>
