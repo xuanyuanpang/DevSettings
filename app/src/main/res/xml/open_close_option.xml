@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+    <SwitchPreference
+        android:key="wlan_forbidden"
+        android:title="@string/wlan_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/wlan_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="bluetooth_forbidden"
+        android:title="@string/bluetooth_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/bluetooth_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="sim_forbidden"
+        android:title="@string/sim_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/sim_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="usbdebug_forbidden"
+        android:title="@string/usbdebug_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/usbdebug_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="charge_only_forbidden"
+        android:title="@string/charge_only_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/charge_only_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="gps_forbidden"
+        android:title="@string/gps_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/gps_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="nfc_forbidden"
+        android:title="@string/nfc_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/nfc_forbidden_sum"
+        android:disableDependentsState="true" />
+
+    <SwitchPreference
+        android:key="home_forbidden"
+        android:title="@string/home_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/home_forbidden_sum"
+        android:disableDependentsState="true" />
+    <SwitchPreference
+        android:key="back_forbidden"
+        android:title="@string/back_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/back_forbidden_sum"
+        android:disableDependentsState="true" />
+    <SwitchPreference
+        android:key="recent_forbidden"
+        android:title="@string/recent_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/recent_forbidden_sum"
+        android:disableDependentsState="true" />
+    <SwitchPreference
+        android:key="phone_forbidden"
+        android:title="@string/phone_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/phone_forbidden_sum"
+        android:disableDependentsState="true" />
+    <SwitchPreference
+        android:key="notification_bar_forbidden"
+        android:title="@string/notification_bar_forbidden"
+        android:textSize="20sp"
+        android:summary="@string/notification_bar_forbidden_sum"
+        android:disableDependentsState="true" />
+
+</PreferenceScreen>

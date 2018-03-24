@@ -10,7 +10,30 @@
     <string name="silent_install">静默安装</string>
     <string name="silent_uninstall">静默卸载</string>
 
-
+    <string name="wlan_forbidden">WLAN禁用</string>
+    <string name="wlan_forbidden_sum">wifi功能禁用或开启</string>
+    <string name="bluetooth_forbidden">蓝牙禁用</string>
+    <string name="bluetooth_forbidden_sum">蓝牙功能禁用或开启</string>
+    <string name="sim_forbidden">SIM卡禁用</string>
+    <string name="sim_forbidden_sum">SIM卡禁用或开启</string>
+    <string name="usbdebug_forbidden">USB调试模式禁用</string>
+    <string name="usbdebug_forbidden_sum">USB调试模式禁用或开启</string>
+    <string name="charge_only_forbidden">仅充电模式</string>
+    <string name="charge_only_forbidden_sum">开启后为仅充电模式，不可以传输文件，关闭后可选文件传输方式</string>
+    <string name="gps_forbidden">GPS禁用</string>
+    <string name="gps_forbidden_sum">GPS禁用或开启</string>
+    <string name="nfc_forbidden">NFC禁用</string>
+    <string name="nfc_forbidden_sum">NFC禁用或开启</string>
+    <string name="home_forbidden">home键禁用</string>
+    <string name="home_forbidden_sum">home键禁用或开启</string>
+    <string name="back_forbidden">返回键禁用</string>
+    <string name="back_forbidden_sum">返回键禁用或开启</string>
+    <string name="recent_forbidden">多任务键禁用</string>
+    <string name="recent_forbidden_sum">多任务禁用或开启</string>
+    <string name="phone_forbidden">通话功能禁用</string>
+    <string name="phone_forbidden_sum">通话功能禁用或开启</string>
+    <string name="notification_bar_forbidden">下拉通知栏禁用</string>
+    <string name="notification_bar_forbidden_sum">下拉通知栏禁用或开启</string>
 
     <string-array name="list_option">
         <item >@string/open_close_settings</item>
