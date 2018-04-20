@@ -1,22 +1,19 @@
 package com.test.devsettings;
 
-import android.app.Activity;
 import android.os.Bundle;
-
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.SwitchPreference;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.android.rfid.DevSettings;
 
 /**
- * Created by Administrator on 2018/3/24.
+ *
+ * @author Administrator
+ * @date 2018/3/24
  */
 
 public class OpenCloseOptionActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
-
 
     private static final String WLAN_FORBIDDEN = "wlan_forbidden";
     private static final String BLUETOOTH_FORBIDDEN = "bluetooth_forbidden";
@@ -50,8 +47,7 @@ public class OpenCloseOptionActivity extends PreferenceActivity implements Prefe
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.open_close_option);
         devSettings = new DevSettings(this);
-        initView() ;
-
+        initView();
     }
 
     private void initView() {
@@ -83,59 +79,54 @@ public class OpenCloseOptionActivity extends PreferenceActivity implements Prefe
 
     }
 
-
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey() ;
         boolean checked = (Boolean)newValue ;
         switch (key) {
             case WLAN_FORBIDDEN:
-
-
+                devSettings.setWifiEnabled(!checked);
                 break;
             case BLUETOOTH_FORBIDDEN:
-
-
+                devSettings.setBtEnabled(!checked);
                 break;
             case SIM_FORBIDDEN:
-
-
+                devSettings.setSimEnabled(!checked);
                 break;
             case USB_DEBUG_FORBIDDEN:
-
-
+                devSettings.setAdbEnabled(!checked);
                 break;
             case CHARGE_ONLY_FORBIDDEN:
-
-
+                devSettings.setAdbEnabled(!checked);
                 break;
             case GPS_FORBIDDEN:
-
-
+                devSettings.setGpsEnabled(!checked);
                 break;
             case NFC_FORBIDDEN:
-
-
+                devSettings.setNfcEnabled(!checked);
                 break;
-            case PHONE_FORBIDDEN://设置是否禁用通话功能
+            //设置是否禁用通话功能
+            case PHONE_FORBIDDEN:
                 devSettings.setPhoneCall(checked);
                 break;
-            case HOME_FORBIDDEN://禁用HOME键
+            //禁用HOME键
+            case HOME_FORBIDDEN:
                 devSettings.lockHome(checked);
-
                 break;
-            case RECENT_FORBIDDEN://禁用多任务按键
+            //禁用多任务按键
+            case RECENT_FORBIDDEN:
                 devSettings.setMenuKey(checked);
-
                 break;
+            //禁用返回键
             case BACK_FORBIDDEN:
-
-
+                devSettings.lockBackKey(checked);
                 break;
-            case NOTIFICATION_BAR_FORBIDDEN://禁用下拉通知栏
+            //禁用下拉通知栏
+            case NOTIFICATION_BAR_FORBIDDEN:
                 devSettings.lockStatusBar(checked);
-
                 break;
+                default:
+                    break;
         }
         return true;
     }

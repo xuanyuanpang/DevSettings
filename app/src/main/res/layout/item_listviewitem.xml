@@ -8,8 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="30sp"
-        android:padding="8dp"
+        android:textSize="26sp"
+        android:padding="10dp"
         android:layout_margin="5dp"
+        android:textColor="#202020"
         android:text="TextView" />
 </LinearLayout>

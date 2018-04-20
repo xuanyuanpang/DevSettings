@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OpenCloseOptionActivity"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:theme="@style/perference_set_activity">
 
         </activity>
     </application>
