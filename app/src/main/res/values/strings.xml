@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">DevSettings</string>
-<!-- 主界面 -->
+    <!-- 主界面 -->
     <string name="open_close_settings">启用/禁用设置</string>
-    <string name="network_black_white_settings">网络白/黑名单设置</string>
+    <string name="white_black_apps_settings">应用黑/白名单设置</string>
+    <string name="network_black_white_settings">网络黑/白名单设置</string>
     <string name="auto_start_settings">自启动设置</string>
     <string name="back_run_settings">后台运行程序设置</string>
     <string name="shut_down">设备关机</string>
@@ -12,7 +13,7 @@
     <string name="silent_uninstall">静默卸载</string>
     <string name="recovery_confirm_title">确认恢复出厂设置？</string>
     <string name="recovery_confirm_content">此项操作将会清除所有数据</string>
-<!-- 启动禁用界面 -->
+    <!-- 启动禁用界面 -->
     <string name="wlan_forbidden">WLAN禁用</string>
     <string name="wlan_forbidden_sum">wifi功能禁用或开启</string>
     <string name="bluetooth_forbidden">蓝牙禁用</string>
@@ -39,14 +40,16 @@
     <string name="notification_bar_forbidden_sum">下拉通知栏禁用或开启</string>
 
     <string-array name="list_option">
-        <item >@string/open_close_settings</item>
-        <item >@string/network_black_white_settings</item>
-        <item >@string/auto_start_settings</item>
-        <item >@string/back_run_settings</item>
-        <item >@string/silent_install</item>
-        <item >@string/silent_uninstall</item>
-        <item >@string/shut_down</item>
-        <item >@string/reboot</item>
+        <item>@string/open_close_settings</item>
+        <item>@string/white_black_apps_settings</item>
+        <item>@string/network_black_white_settings</item>
+        <item>@string/auto_start_settings</item>
+        <item>@string/back_run_settings</item>
+        <item>@string/silent_install</item>
+        <item>@string/silent_uninstall</item>
+        <item>@string/shut_down</item>
+        <item>@string/reboot</item>
         <item>@string/recovery</item>
     </string-array>
+    <string name="title_activity_white_black_apps">WhiteBlackAppsActivity</string>
 </resources>

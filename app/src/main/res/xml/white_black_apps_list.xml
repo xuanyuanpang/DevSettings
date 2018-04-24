@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="add_white_app"
+        android:summary="白名单外应用无法在设备上安装"
+        android:title="添加应用安装白名单" />
+    <EditTextPreference
+        android:key="delete_white_app"
+        android:summary="删除白名单中的指定应用"
+        android:title="删除应用安装白名单" />
+    <Preference
+        android:key="query_white_app"
+        android:summary="查询白名单中的所有应用"
+        android:title="查询应用安装白名单" />
+    <Preference
+        android:key="clear_white_app"
+        android:summary="清除白名单中的所有应用"
+        android:title="清除应用安装白名单" />
+    <EditTextPreference
+        android:key="add_black_app"
+        android:summary="黑名单内的应用无法在设备上安装"
+        android:title="添加应用安装黑名单" />
+    <EditTextPreference
+        android:key="delete_black_app"
+        android:summary="删除黑名单中的指定应用"
+        android:title="删除应用安装黑名单" />
+    <Preference
+        android:key="query_black_app"
+        android:summary="查询黑名单中的所有应用"
+        android:title="查询应用安装黑名单" />
+    <Preference
+        android:key="clear_black_app"
+        android:summary="清除黑名单中的所有应用"
+        android:title="清除应用安装黑名单" />
+
+</PreferenceScreen>
