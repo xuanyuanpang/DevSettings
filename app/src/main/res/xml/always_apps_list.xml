@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="add_always_app"
+        android:summary="始终运行的应用将无法被清除，除非软件自身关闭"
+        android:title="添加始终运行应用名单" />
+    <MultiSelectListPreference
+        android:key="delete_always_app"
+        android:summary="删除始终运行名单中的指定应用"
+        android:title="删除始终运行名单" />
+    <Preference
+        android:key="query_always_app"
+        android:summary="查询始终运行名单中的所有应用"
+        android:title="查询始终运行名单" />
+    <Preference
+        android:key="clear_always_app"
+        android:summary="清除始终运行名单中的所有应用"
+        android:title="清除始终运行名单" />
+</PreferenceScreen>

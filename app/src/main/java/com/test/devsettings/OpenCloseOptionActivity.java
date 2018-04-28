@@ -97,7 +97,7 @@ public class OpenCloseOptionActivity extends PreferenceActivity implements Prefe
                 devSettings.setAdbEnabled(!checked);
                 break;
             case CHARGE_ONLY_FORBIDDEN:
-                devSettings.setAdbEnabled(!checked);
+                devSettings.setUsbEnabled(!checked);
                 break;
             case GPS_FORBIDDEN:
                 devSettings.setGpsEnabled(!checked);

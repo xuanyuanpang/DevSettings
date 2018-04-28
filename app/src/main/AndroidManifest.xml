@@ -26,6 +26,7 @@
             android:name=".WhiteBlackAppsActivity"
             android:label="添加应用黑/白名单"
             android:launchMode="singleTask" />
+        <activity android:name=".BackRunAppsRunActivity"></activity>
     </application>
 
 </manifest>
