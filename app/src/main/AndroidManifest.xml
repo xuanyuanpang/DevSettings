@@ -45,6 +45,7 @@
             android:name=".AutoRunAppActivity"
             android:label="自启动设置"
             android:launchMode="singleTask" />
+        <activity android:name=".BackRunAppsRunActivity"></activity>
     </application>
 
 </manifest>

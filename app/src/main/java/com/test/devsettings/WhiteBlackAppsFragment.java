@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
+import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +12,7 @@ import android.util.Log;
 
 import com.android.rfid.DevSettings;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class WhiteBlackAppsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
@@ -24,6 +26,8 @@ public class WhiteBlackAppsFragment extends PreferenceFragment implements Shared
     private String deleteBlackAppKey = "delete_black_app";
     private String clearBlackAppKey = "clear_black_app";
     private String queryBlackAppKey = "query_black_app";
+    private MultiSelectListPreference mDeleteWhite;
+    private MultiSelectListPreference mDeleteBlack;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,14 +35,20 @@ public class WhiteBlackAppsFragment extends PreferenceFragment implements Shared
         addPreferencesFromResource(R.xml.white_black_apps_list);
 
         findPreference(addWhiteAppKey).setOnPreferenceChangeListener(this);
-        findPreference(deleteWhiteAppKey).setOnPreferenceChangeListener(this);
+        mDeleteWhite = (MultiSelectListPreference) findPreference(deleteWhiteAppKey);
+        mDeleteWhite.setOnPreferenceChangeListener(this);
+        mDeleteWhite.setOnPreferenceClickListener(this);
         findPreference(addBlackAppKey).setOnPreferenceChangeListener(this);
-        findPreference(deleteBlackAppKey).setOnPreferenceChangeListener(this);
+        mDeleteBlack = (MultiSelectListPreference) findPreference(deleteBlackAppKey);
+        mDeleteBlack.setOnPreferenceChangeListener(this);
+        mDeleteBlack.setOnPreferenceClickListener(this);
         findPreference(queryWhiteAppKey).setOnPreferenceClickListener(this);
         findPreference(clearWhiteAppKey).setOnPreferenceClickListener(this);
         findPreference(queryBlackAppKey).setOnPreferenceClickListener(this);
         findPreference(clearBlackAppKey).setOnPreferenceClickListener(this);
         mDevSettings = new DevSettings(getActivity());
+        updateWhiteApps();
+        updateBlackApps();
     }
 
     @Override
@@ -72,15 +82,27 @@ public class WhiteBlackAppsFragment extends PreferenceFragment implements Shared
         if (addWhiteAppKey.equals(key)) {
             Log.e(TAG, "onPreferenceChange, addWhiteAppKey = " + appPkgName);
             mDevSettings.addWhiteAppsList(appPkgName);
+            updateWhiteApps();
         } else if (deleteWhiteAppKey.equals(key)) {
             Log.e(TAG, "onPreferenceChange, deleteWhiteAppKey = " + appPkgName);
-            mDevSettings.deleteWhiteAppsList(appPkgName);
+            HashSet<String> strings = (HashSet<String>) objValue;
+            for (String name:strings){
+                Log.e(TAG, "onPreferenceChange, deleteWhiteAppKey = " + name);
+                mDevSettings.deleteWhiteAppsList(name);
+            }
+            updateWhiteApps();
         } else if (addBlackAppKey.equals(key)) {
             Log.e(TAG, "onPreferenceChange, addBlackAppKey = " + appPkgName);
             mDevSettings.addBlackAppsList(appPkgName);
+            updateBlackApps();
         } else if (deleteBlackAppKey.equals(key)) {
             Log.e(TAG, "onPreferenceChange, deleteBlackAppKey = " + appPkgName);
-            mDevSettings.deleteBlackAppsList(appPkgName);
+            HashSet<String> strings = (HashSet<String>) objValue;
+            for (String name:strings){
+                Log.e(TAG, "onPreferenceChange, deleteWhiteAppKey = " + name);
+                mDevSettings.deleteBlackAppsList(name);
+            }
+            updateBlackApps();
         }
         return false;
     }
@@ -119,6 +141,7 @@ public class WhiteBlackAppsFragment extends PreferenceFragment implements Shared
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             mDevSettings.clearWhiteAppsList();
+                            updateWhiteApps();
                         }
                     })
                     .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -157,6 +180,7 @@ public class WhiteBlackAppsFragment extends PreferenceFragment implements Shared
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             mDevSettings.clearBlackAppsList();
+                            updateBlackApps();
                         }
                     })
                     .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -169,5 +193,40 @@ public class WhiteBlackAppsFragment extends PreferenceFragment implements Shared
                     .show();
         }
         return false;
+    }
+
+    /**
+     * 更新白名单列表
+     */
+    public void updateWhiteApps(){
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        List<String> whiteAppsList = mDevSettings.queryWhiteAppsList();
+        String[] collection = new String[whiteAppsList.size()];
+        for (int i = 0; i < whiteAppsList.size(); i++) {
+            collection[i] = whiteAppsList.get(i);
+        }
+        mDeleteWhite.setEntries(collection);
+        mDeleteWhite.setEntryValues(collection);
+    }
+    /**
+     * 更新黑名单
+     */
+    public void updateBlackApps(){
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        List<String> blackAppsList = mDevSettings.queryBlackAppsList();
+        String[] collection = new String[blackAppsList.size()];
+        for (int i = 0; i < blackAppsList.size(); i++) {
+            collection[i] = blackAppsList.get(i);
+        }
+        mDeleteBlack.setEntries(collection);
+        mDeleteBlack.setEntryValues(collection);
     }
 }

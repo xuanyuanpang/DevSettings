@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void initView() {
-        lvOption = (ListView) findViewById(R.id.lv_list_option);
+        lvOption = findViewById(R.id.lv_list_option);
         optionArray = getResources().getStringArray(R.array.list_option);
         lvOption.setAdapter(new MAdapter());
         lvOption.setOnItemClickListener(this);
@@ -73,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 1:
                 intent = new Intent(MainActivity.this, WhiteBlackAppsActivity.class);
+                startActivity(intent);
+                break;
+                // back run
+            case 4:
+                intent = new Intent(MainActivity.this, BackRunAppsRunActivity.class);
                 startActivity(intent);
                 break;
             //power off
@@ -157,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             if (convertView == null) {
                 holder = new ViewHolder();
                 convertView = LayoutInflater.from(mContext).inflate(R.layout.item_listviewitem, null);
-                holder.tv = (TextView) convertView.findViewById(R.id.textView);
+                holder.tv = convertView.findViewById(R.id.textView);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();

@@ -4,7 +4,7 @@
         android:key="add_white_app"
         android:summary="白名单外应用无法在设备上安装"
         android:title="添加应用安装白名单" />
-    <EditTextPreference
+    <MultiSelectListPreference
         android:key="delete_white_app"
         android:summary="删除白名单中的指定应用"
         android:title="删除应用安装白名单" />
@@ -20,7 +20,7 @@
         android:key="add_black_app"
         android:summary="黑名单内的应用无法在设备上安装"
         android:title="添加应用安装黑名单" />
-    <EditTextPreference
+    <MultiSelectListPreference
         android:key="delete_black_app"
         android:summary="删除黑名单中的指定应用"
         android:title="删除应用安装黑名单" />
