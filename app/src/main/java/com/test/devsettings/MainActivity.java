@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.rfid.DevSettings;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView lvOption;
@@ -22,11 +24,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Context mContext;
     private AlertDialog mAlertDialog;
 
+    private DevSettings dev ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
+        dev = new DevSettings(this);
         initObject();
         initView();
     }
@@ -72,12 +76,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
                 break;
             //power off
-            case 7:
-
+            case 2://网络黑白名单设置
+                intent = new Intent(MainActivity.this, NetworkWhiteBlackActivity.class);
+                startActivity(intent);
+                break;
+            case 3://自启动
+                intent = new Intent(MainActivity.this, AutoRunAppActivity.class);
+                startActivity(intent);
+                break;
+            case 5://静默安装
+                intent = new Intent(MainActivity.this, SilentInstallActivity.class);
+                startActivity(intent);
+                break;
+            case 6://静默卸载
+                intent = new Intent(MainActivity.this, SilentUninstallActivity.class);
+                startActivity(intent);
+                break;
+            case 7://关机
+                createShutDownDialog();
                 break;
             //restart
-            case 8:
-
+            case 8://重启
+                createRebootDialog();
                 break;
             case 9:
                 mAlertDialog.show();
@@ -85,6 +105,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             default:
                 break;
         }
+    }
+
+    //设备关机对话框
+    private void createShutDownDialog() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("是否确定关机?");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dev.shutdown(); ;//关机
+            }
+        });
+        builder.setNegativeButton("取消", null) ;
+        builder.create().show();
+    }
+
+    //设备关机对话框
+    private void createRebootDialog() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("是否确定重启?");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dev.reboot(); ;//重启
+            }
+        });
+        builder.setNegativeButton("取消", null) ;
+        builder.create().show();
     }
 
     class MAdapter extends BaseAdapter {

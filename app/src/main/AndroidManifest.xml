@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.devsettings">
 
+    <uses-permission android:name="com.straw.providerhost.course.read" />
+    <uses-permission android:name="com.straw.providerhost.course.write" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,6 +28,22 @@
         <activity
             android:name=".WhiteBlackAppsActivity"
             android:label="添加应用黑/白名单"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".NetworkWhiteBlackActivity"
+            android:label="添加网络黑/白名单"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".SilentInstallActivity"
+            android:label="静默安装"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".SilentUninstallActivity"
+            android:label="静默卸载"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".AutoRunAppActivity"
+            android:label="自启动设置"
             android:launchMode="singleTask" />
     </application>
 
